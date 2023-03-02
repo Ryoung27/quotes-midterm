@@ -2,7 +2,7 @@
     class Quote{
         //DB Stuff
         private $conn;
-        private $table = 'categories';
+        private $table = 'quotes';
 
         //Quote Properties
         public $id;
