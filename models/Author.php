@@ -20,7 +20,7 @@
                         id,
                         author
                     FROM
-                    ' . $this->table '';
+                    ' . $this->table . '';
 
             // Prepare statement
             $stmt = $this->conn->prepare($query);

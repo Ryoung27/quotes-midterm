@@ -8,11 +8,11 @@
         private $conn;
 
         public function __construct(){
-            $this->username = getenv('username', false);
-            $this->password = getenv('password', false); 
-            $this->dbname = getenv('database', false); 
-            $this->port = getenv('port', false); 
-            $this->host = getenv('host', false);
+            $this->username = getenv('USERNAME');
+            $this->password = getenv('PASSWORD'); 
+            $this->dbname = getenv('DATABASE'); 
+            $this->port = getenv('PORT'); 
+            $this->host = getenv('HOST');
         }
 
         public function connect(){
@@ -21,7 +21,7 @@
                 //connection already exists, return it.
                 return $this->conn;
             } else{
-                $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
+                $dsn = "postgres://{$this->username}:{$this->password}@{$this->host}" . ".oregon-postgres.render.com/{$this->dbname};";
 
                 try {
                     $this->conn = new PDO($dsn, $this->username, $this->password);
