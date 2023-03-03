@@ -1,23 +1,24 @@
 <?php
     class Database{
+        private $conn;
         private $host;
         private $port;
         private $dbname;
         private $username;
         private $password;
-        private $conn;
+
 
         public function __construct(){
             $this->username = getenv('USERNAME');
             $this->password = getenv('PASSWORD'); 
-            $this->dbname = getenv('DATABASE'); 
+            $this->dbname = getenv('DBNAME');
+            $this->host = getenv('HOST'); 
             $this->port = getenv('PORT'); 
-            $this->host = getenv('HOST');
         }
 
-        public function connect(){
+        public function connect() {
             //instead of $this->conn = null;
-            if($this->conn){
+            if ($this->conn){
                 //connection already exists, return it.
                 return $this->conn;
             } else{
