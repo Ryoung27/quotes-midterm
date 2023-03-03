@@ -15,7 +15,20 @@
 
         //Get Categories
         public function read(){
+            //Create query
+            $query = 'SELECT 
+                        id,
+                        category
+                    FROM
+                    ' . $this->table . '';
 
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+
+            // Execute query
+            $stmt->execute();
+
+            return $stmt;
         }
 
         //Get Single Category
