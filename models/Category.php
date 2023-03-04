@@ -20,7 +20,9 @@
                         id,
                         category
                     FROM
-                    ' . $this->table . '';
+                    ' . $this->table . '
+                    ORDER BY
+                        id ASC';
 
             // Prepare statement
             $stmt = $this->conn->prepare($query);
