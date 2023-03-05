@@ -33,7 +33,30 @@
 
         //Get Single Author
         public function read_single(){
+            //Create query
+            $query = 'SELECT 
+                        id,
+                        author
+                    FROM
+                ' . $this->table . '
+                WHERE
+                id = ?
+            LIMIT 0,1';
 
+            //Prepare statement
+            $stmt = $this->conn->prepare($query);
+
+            //Bind Id
+            $stmt->bindParam(1, $this->id);
+
+            // Execute query
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            //Set Properties
+            $this->id = $row['id'];
+            $this->author = $row['author'];
         }
 
         //Create Author
