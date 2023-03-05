@@ -58,7 +58,7 @@
 
             //Set Properties
             $this->id = $row['id'];
-            $this->author = $row['category'];
+            $this->category = $row['category'];
         }
 
         //Create Creatory

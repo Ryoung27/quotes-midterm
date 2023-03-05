@@ -13,11 +13,11 @@
     $category->id = isset($_GET['id']) ? $_GET['id'] : die();
 
     //Get post
-    $author->read_single();
+    $category->read_single();
 
     //Create array
     $post_arr = array(
-        'id'            => $author->id,
+        'id'            => $category->id,
         'category'      => $category->category,
     );
 
