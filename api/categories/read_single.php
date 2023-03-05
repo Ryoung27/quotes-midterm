@@ -22,4 +22,4 @@
     );
 
     // Make JSON
-    print_r(json_encode($post_arr))
+    print_r(json_encode($post_arr));
