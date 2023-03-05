@@ -1,6 +1,6 @@
 <?php
     include_once '../../config/Database.php';
-    include_once '../../models/Post.php';
+    include_once '../../models/Author.php';
 
     // Instantiate DB & connect
     $database = new Database();
