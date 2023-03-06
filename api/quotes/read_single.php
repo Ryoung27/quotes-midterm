@@ -20,8 +20,8 @@
         'id'            => $quote->id,
         'quote'         => $quote->quote,
         'author'        => $quote->author,
-        'category'      => $category->category,
+        'category'      => $quote->category,
     );
 
     // Make JSON
-    print_r(json_encode($_arr));
+    print_r(json_encode($quote_arr));

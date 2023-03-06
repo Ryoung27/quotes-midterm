@@ -55,7 +55,7 @@
                     authors ON quotes.author_id = authors.id
                 LEFT JOIN
                     categories ON quotes.category_id = categories.id
-                WHERE id = ?
+                WHERE quotes.id = ?
                 LIMIT 1';
 
             //Prepare statement
