@@ -17,5 +17,7 @@ if($method === 'GET'){
     }else{
       include_once 'read.php';
     }
+} else if($method === 'POST'){
+    include_once 'create.php';
 }
 ?>
