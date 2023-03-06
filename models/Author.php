@@ -64,9 +64,11 @@
             // Create Query
             $query = 'INSERT INTO ' .
                     $this->table . '
-                SET
-                    id = :id,
-                    author = :author';
+                (
+                author)
+                VALUES
+                    (
+                    :author)';
 
             // Prepare Statement
             $stmt = $this->conn->prepare($query);
