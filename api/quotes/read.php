@@ -17,8 +17,7 @@
 
     // Check if any quotes
     if($num > 0){
-        // Category array
-        $quotes_arr = array();
+        // Quotes array
         $quotes_arr = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){

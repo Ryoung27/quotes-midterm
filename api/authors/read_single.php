@@ -16,10 +16,10 @@
     $author->read_single();
 
     //Create array
-    $post_arr = array(
+    $author_arr = array(
         'id'            => $author->id,
         'author'        => $author->author,
     );
 
     // Make JSON
-    print_r(json_encode($post_arr));
+    print_r(json_encode($author_arr));

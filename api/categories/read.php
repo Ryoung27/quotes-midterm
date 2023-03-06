@@ -19,7 +19,6 @@
     if($num > 0){
         // Category array
         $categories_arr = array();
-        $categories_arr = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
