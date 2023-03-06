@@ -58,15 +58,6 @@
                 WHERE id = ?
                 LIMIT 1';
 
-            $query = 'SELECT 
-                        id,
-                        category
-                    FROM
-                ' . $this->table . '
-                WHERE
-                id = ?
-            LIMIT 1';
-
             //Prepare statement
             $stmt = $this->conn->prepare($query);
 
