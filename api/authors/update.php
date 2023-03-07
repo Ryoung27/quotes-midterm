@@ -19,7 +19,7 @@
 
 
     //Update author
-    if($auhot->update()){
+    if($author->update()){
         //Create array
         $author_arr = array(
             'id'            => $author->id,
