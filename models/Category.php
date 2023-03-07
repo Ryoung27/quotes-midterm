@@ -94,7 +94,34 @@
 
         //Update Creatory
         public function update(){
+            // Update Query
+            $query = 'UPDATE ' .
+            $this->table . '
+        SET
+            category = :category
+            WHERE
+                id = :id';
+                
 
+            // Prepare Statement
+            $stmt = $this->conn->prepare($query);
+
+            //Clean data
+            $this->id = htmlspecialchars(strip_tags($this->id));
+            $this->category = htmlspecialchars(strip_tags($this->category));
+
+            // Bind Data
+            $stmt->bindParam(':category', $this->category);
+            $stmt->bindParam(':id', $this->id);
+            
+            // Execute query
+            if($stmt->execute()){
+                return true;
+            }else{
+                // Print error if something goes wrong.
+                printf("Error: %s.\n", $stmt->error);
+                return false;
+            }
         }
 
         //Delete Creatory
