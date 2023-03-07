@@ -78,7 +78,40 @@
 
         //Create Quote
         public function create(){
+            // Create Query
+            $query = 'INSERT INTO ' .
+                    $this->table . '
+                (quote,
+                author_id,
+                category_id)
+                VALUES
+                    (
+                    :quote,
+                    :author_id,
+                    :category_id)
+                RETURNING id, quote, author_id, category_id';
 
+            // Prepare Statement
+            $stmt = $this->conn->prepare($query);
+
+            //Clean data
+            $this->quote = htmlspecialchars(strip_tags($this->quote));
+            $this->author_id = htmlspecialchars(strip_tags($this->author_id));
+            $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+            // Bind Data
+            $stmt->bindParam(':quote', $this->author_id);
+            $stmt->bindParam(':author_id', $this->author_id);
+            $stmt->bindParam(':category_id', $this->category_id);
+
+            // Execute query
+            if($stmt->execute()){
+                return $stmt->fetch()["id"];
+            }else{
+                // Print error if something goes wrong.
+                printf("Error: %s.\n", $stmt->error);
+                return false;
+            }
         }
 
         //Update Quote
