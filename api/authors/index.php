@@ -22,6 +22,6 @@ if($method === 'GET'){
 } else if($method === 'PUT'){
     include_once 'update.php';
 }else if($method === 'DELETE'){
-    include_once 'delete.php'
+    include_once 'delete.php';
 }
 ?>
