@@ -80,7 +80,7 @@
             $this->category = htmlspecialchars(strip_tags($this->category));
 
             // Bind Data
-            $stmt->bindParam(':author', $this->category);
+            $stmt->bindParam(':category', $this->category);
 
             // Execute query
             if($stmt->execute()){
