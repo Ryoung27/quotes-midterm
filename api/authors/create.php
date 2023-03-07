@@ -15,11 +15,13 @@
     $data = json_decode(file_get_contents("php://input"));
 
     $author->author = $data->author;
+    $author_id = $author->create();
 
     //Create author
-    if($author->create()){
+    if($author_id){
         //Create array
         $author_arr = array(
+            'id'            => $author_id,
             'author'        => $author->author,
         );
 

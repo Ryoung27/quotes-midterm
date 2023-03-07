@@ -68,7 +68,8 @@
                 author)
                 VALUES
                     (
-                    :author)';
+                    :author)
+                RETURNING id, author';
 
             // Prepare Statement
             $stmt = $this->conn->prepare($query);
@@ -81,7 +82,7 @@
 
             // Execute query
             if($stmt->execute()){
-                return true;
+                return $stmt->fetch()["id"];
             }else{
                 // Print error if something goes wrong.
                 printf("Error: %s.\n", $stmt->error);
