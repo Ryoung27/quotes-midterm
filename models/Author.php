@@ -96,7 +96,7 @@
             $query = 'UPDATE ' .
             $this->table . '
         SET
-            author = :author,
+            author = :author
             WHERE
                 id = :id';
                 
@@ -109,8 +109,8 @@
             $this->author = htmlspecialchars(strip_tags($this->author));
 
             // Bind Data
-            $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':author', $this->author);
+            $stmt->bindParam(':id', $this->id);
             
             // Execute query
             if($stmt->execute()){
