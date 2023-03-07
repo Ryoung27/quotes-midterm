@@ -25,5 +25,5 @@
         // Make JSON
         print_r(json_encode($category_arr));
     }else{
-        print_r(json_encode(array("message" => "author_id Not Found")));
+        print_r(json_encode(array("message" => "category_id Not Found")));
     }

@@ -59,7 +59,7 @@
             //Set Properties
             if(isset($row['id'])&& isset($row['category'])){
                 $this->id = $row['id'];
-                $this->author = $row['category'];
+                $this->category = $row['category'];
             }
         }
 
