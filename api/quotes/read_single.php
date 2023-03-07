@@ -16,6 +16,7 @@
     $quote->read_single();
 
     //Create array
+    if((isset($quote->id) && isset($quote->quote))){
     $quote_arr = array(
         'id'            => $quote->id,
         'quote'         => $quote->quote,
@@ -25,3 +26,6 @@
 
     // Make JSON
     print_r(json_encode($quote_arr));
+    }else{
+        print_r(json_encode(array("message" => "No Quotes Found")));
+    }
