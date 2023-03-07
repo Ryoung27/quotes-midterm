@@ -14,14 +14,12 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    $author->id = $data->id;
     $author->author = $data->author;
 
     //Create author
     if($author->create()){
         //Create array
         $author_arr = array(
-            'id'            => $author->id,
             'author'        => $author->author,
         );
 
