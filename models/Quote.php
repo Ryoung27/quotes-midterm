@@ -174,7 +174,7 @@
                 printf("Error: %s.\n", $stmt->error);
                 return false;
             }
-        }
+    
         }
 
 }
