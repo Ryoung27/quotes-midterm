@@ -19,5 +19,7 @@ if($method === 'GET'){
     }
 } else if($method === 'POST'){
     include_once 'create.php';
+} else if($method === 'PUT'){
+    include_once 'update.php';
 }
 ?>
