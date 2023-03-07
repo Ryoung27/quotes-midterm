@@ -16,10 +16,14 @@
     $category->read_single();
 
     //Create array
-    $category_arr = array(
-        'id'            => $category->id,
-        'category'      => $category->category,
-    );
+    if((isset($category->id) && isset($category->category))){
+        $category_arr = array(
+            'id'            => $category->id,
+            'category'      => $category->category,
+        );
 
-    // Make JSON
-    print_r(json_encode($category_arr));
+        // Make JSON
+        print_r(json_encode($category_arr));
+    }else{
+        print_r(json_encode(array("message" => "author_id Not Found")));
+    }
