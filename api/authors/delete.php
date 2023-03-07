@@ -26,6 +26,6 @@
         print_r(json_encode($author_arr));
     }else{
         echo json_encode(
-            array('message' => 'Category Not Deleted')
+            array('message' => 'Author Not Deleted')
         );  
     }
