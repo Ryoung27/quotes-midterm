@@ -12,11 +12,13 @@ if ($method === 'OPTIONS') {
 }
 
 if($method === 'GET'){
-    if(isset($param_passed)){
-      include_once 'read_single.php';
-    }else{
-      include_once 'read.php';
-    }
+  if(isset($param_passed)){
+    include_once 'read_single.php';
+  }else{
+    include_once 'read.php';
+  }
+} else if($method === 'POST'){
+  include_once 'create.php';
 }
 
 ?>

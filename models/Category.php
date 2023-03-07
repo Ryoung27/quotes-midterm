@@ -63,7 +63,33 @@
 
         //Create Creatory
         public function create(){
+            // Create Query
+            $query = 'INSERT INTO ' .
+                    $this->table . '
+                (
+                category)
+                VALUES
+                    (
+                    :category)
+                RETURNING id, category';
 
+            // Prepare Statement
+            $stmt = $this->conn->prepare($query);
+
+            //Clean data
+            $this->category = htmlspecialchars(strip_tags($this->category));
+
+            // Bind Data
+            $stmt->bindParam(':author', $this->category);
+
+            // Execute query
+            if($stmt->execute()){
+                return $stmt->fetch()["id"];
+            }else{
+                // Print error if something goes wrong.
+                printf("Error: %s.\n", $stmt->error);
+                return false;
+            }
         }
 
         //Update Creatory
