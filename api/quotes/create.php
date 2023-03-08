@@ -17,6 +17,7 @@
     $quote->quote = isset($data->quote) ? $data->quote : null;
     $quote->author_id = isset($data->author_id) ? $data->author_id : null;
     $quote->category_id = isset($data->category_id) ? $data->author_id : null;
+
     if(isset($quote->quote) && isset($quote->author_id) && isset($quote->category_id)){
         $quote_id = $quote->create();
 
@@ -37,6 +38,14 @@
                 array('message' => 'Quote Not Created')
             );  
         }
+    }else if(!isset($quote->author_id) && isset($quote->category_id)){
+        echo json_encode(
+            array('message' => 'author_id Not Found')
+        ); 
+    }else if(isset($quote->author_id) && !isset($quote->category_id)){
+        echo json_encode(
+            array('message' => 'category_id Not Found')
+        ); 
     }else{
         echo json_encode(
             array('message' => 'Missing Required Parameters')
