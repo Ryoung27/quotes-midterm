@@ -14,22 +14,28 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // Set ID to update
-    $category->id = $data->id;
-    $category->category = $data->category;
+    $category->id = isset($data->id) ? $data->id : null;
+    $category->category = isset($data->category) ? $data->category : null;
 
 
     //Update category
-    if($category->update()){
-        //Create array
-        $category_arr = array(
-            'id'            => $category->id,
-            'category'        => $category->category,
-        );
+    if(isset($category->category) && isset($category->id)){
+        if($category->update()){
+            //Create array
+            $category_arr = array(
+                'id'            => $category->id,
+                'category'        => $category->category,
+            );
 
-        // Make JSON
-        print_r(json_encode($category_arr));
+            // Make JSON
+            print_r(json_encode($category_arr));
+        }else{
+            echo json_encode(
+                array('message' => 'Category Not Updated')
+            );  
+        }
     }else{
         echo json_encode(
-            array('message' => 'Category Not Updated')
+            array('message' => 'Missing Required Parameters')
         );  
     }
