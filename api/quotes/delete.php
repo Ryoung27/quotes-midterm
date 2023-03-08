@@ -26,6 +26,6 @@
         print_r(json_encode($quote_arr));
     }else{
         echo json_encode(
-            array('message' => 'Quote Not Deleted')
+            array('message' => 'No Quotes Found')
         );  
     }
